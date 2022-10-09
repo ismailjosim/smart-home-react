@@ -1,0 +1,31 @@
+https://shome-shop.netlify.app/
+
+Starter: https://github.com/shakilahmedatik/smart-home-starter.git
+Complete: https://github.com/shakilahmedatik/smart-home-complete.git
+
+image uploaded site: https://imgbb.com/
+
+Video watch: 25min
+
+If we want to give access to some of our code throughout our app, we can use the context API to do that. Context API is very powerful and it's very easy to use. We need to input the context API and create some context for this. There is no need to install anything separately to use context API in our app as it is provided by default in React.
+
+For this, we will create the context in the Root or main parent and share this among its child component.
+
+To declare context we have to create like this: ProductContext. every work word 1st letter would be capital letter.
+
+to share data from parent to child previously we use props to send data but now we can use context API to send data and we can receive from anywhere any child using this API.
+
+Steps:
+
+==> Create a hooks name createContext and export it so that we can import it from any child component:
+export const ProductContext = createContext([]);
+
+===> get API data From useLoaderData;
+    const products = useLoaderData();
+
+===> Send data as props but this time use context API:
+<ProductContext.Provider value={products}></ProductContext.Provider>
+
+===> In which component does the data need to be received, Go to that component and create a variable in that component import and state useContext. Inside the state, we have to tell which context data we want to access.
+  const products = useContext(ProductContext);
+  console.log(products);
